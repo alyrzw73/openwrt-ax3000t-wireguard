@@ -10,11 +10,10 @@ jobs:
     - name: Checkout OpenWrt
       uses: actions/checkout@v3
 
-    - name: Clone official OpenWrt source
-      run: |
-        git clone --depth=1 --branch v23.05.5 https://git.openwrt.org/openwrt/openwrt.git openwrt
-        cp .config openwrt/.config
-
+- name: Clone official OpenWrt source
+  run: |
+    git clone --depth=1 --branch v23.05.5 https://git.openwrt.org/openwrt/openwrt.git openwrt
+    cp $GITHUB_WORKSPACE/.config openwrt/.config
     - name: Install dependencies
       run: |
         sudo apt update
